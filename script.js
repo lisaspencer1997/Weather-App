@@ -70,6 +70,35 @@ function fetchWeatherData(city) {
 
             console.log(data)
 
+            const forecastContainer = $('.forecast-container');
+            forecastContainer.empty();
+
+            for (let i = 0; i < data.list.length; i += 8) {
+                const forecastDate = dayjs(data.list[i].dt_text).format("DD MMMM YYYY")
+                const forecastIcon = data.list[i].weather[0].icon;
+                const forecastTemp = data.list[i].main.temp;
+                const forecastWind = data.list[i].wind.speed;
+                const forecastHumidity = data.list[i].main.humidity;
+
+
+                const forecastCard = `
+                    <div class="forecast-card">
+                        <div class="forecast-date">${forecastDate}</div>
+                        //! <div class="forecast-icon">${forecastDate}</div>
+                        <div class="forecast-temp">${forecastDate}</div>
+                        <div class="forecast-date">${forecastDate}</div>
+                        <div class="forecast-date">${forecastDate}</div>
+
+                `
+                
+            }
+
+            // $('.forecastDate').text(`${todaysDate}`);
+            // //$('.forecastWeatherIcon').setAttr(`${}`);
+            // $('forecastTemp').text(`Temperature: ${data.main.temp} ºC`);
+            // $('.forecastWind').text(`Wind Speed: ${data.wind.speed} KPH`);
+            // $('.forecastHumidity').text(`Humidity: ${data.main.humidity}%`);
+
         })
     });
 
