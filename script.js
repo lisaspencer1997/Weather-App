@@ -27,8 +27,9 @@
 // TODO: Add Api key, city and query url
 const APIKey = "e610d1ee0c1652aebf27c6bf71a547e3";
 const city = "London";
-const queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKey}`
-//const todaysDate = new Date();
+
+const queryURL = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${APIKey}`
+
 const todaysDate = dayjs().format("DD MMMM YYYY")
 console.log(todaysDate);
 
@@ -38,16 +39,24 @@ fetch(queryURL)
     return response.json()
 })
 .then (function (data) {
-    console.log(data)
 
-    $('.city').text(`${city}`);
-    $('.todaysDate').text(`${todaysDate}`);
-    $('.city').text(`${city}`);
-    $('.city').text(`${city}`);
-    $('.city').text(`${city}`);
-    $('.city').text(`${city}`);
+    const newQueryURL = `https://api.openweathermap.org/data/2.5/weather?lat=${data[0].lat}&lon=${data[0].lon}&units=metric&appid=${APIKey}`
 
-})
+    fetch(newQueryURL)
+    .then (function (response) {
+        return response.json()
+    }).then (function (data) {
+        
+        $('.city').text(`${city}`);
+        $('.todaysDate').text(`Today's Date: ${todaysDate}`);
+        //$('.todaysWeatherIcon').setAttr(`${}`);
+        $('.todaysTemp').text(`Temperature: ${data.main.temp} ºC`);
+        $('.todaysWind').text(`Wind Speed: ${data.wind.speed} KPH`);
+        $('.todaysHumidity').text(`Humidity: ${data.main.humidity}%`);
+
+    });
+
+});
 
 
 
