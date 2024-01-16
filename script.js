@@ -84,13 +84,15 @@ function fetchWeatherData(city) {
                 const forecastCard = `
                     <div class="forecast-card">
                         <div class="forecast-date">${forecastDate}</div>
-                        //! <div class="forecast-icon">${forecastDate}</div>
-                        <div class="forecast-temp">${forecastDate}</div>
-                        <div class="forecast-date">${forecastDate}</div>
-                        <div class="forecast-date">${forecastDate}</div>
-
-                `
+                        <div class="forecast-icon"><img src="http://openweathermap.org/img/wn/${forecastIcon}.png" alt="Weather Icon"></div>
+                        <div class="forecast-temp">Temp: ${forecastTemp} ºC</div>
+                        <div class="forecast-wind">Wind: ${forecastWind} KPH</div>
+                        <div class="forecast-humidity">Humidity: ${forecastHumidity}%</div>
+                    </div>
+                `;
                 
+
+                forecastContainer.append(forecastCard);
             }
 
             // $('.forecastDate').text(`${todaysDate}`);
