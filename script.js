@@ -66,19 +66,21 @@ function fetchWeatherData(city) {
         fetch(fiveDayForecastURL)
         .then (function (response) {
             return response.json()
-        }).then (function (data) {
+        }).then (function (fiveData) {
 
-            console.log(data)
+            console.log(fiveData)
 
             const forecastContainer = $('.forecast-container');
             forecastContainer.empty();
 
-            for (let i = 0; i < data.list.length; i += 8) {
-                const forecastDate = dayjs(data.list[i].dt_text).format("DD MMMM YYYY")
-                const forecastIcon = data.list[i].weather[0].icon;
-                const forecastTemp = data.list[i].main.temp;
-                const forecastWind = data.list[i].wind.speed;
-                const forecastHumidity = data.list[i].main.humidity;
+            for (let i = 0; i < fiveData.list.length; i += 8) {
+                const forecastDate = dayjs(fiveData.list[i].dt_txt).format("DD MMMM YYYY")
+                const forecastIcon = fiveData.list[i].weather[0].icon;
+                const forecastTemp = fiveData.list[i].main.temp;
+                const forecastWind = fiveData.list[i].wind.speed;
+                const forecastHumidity = fiveData.list[i].main.humidity;
+
+                console.log(dayjs(fiveData.list[1].dt_text).format("DD MMMM YYYY"))
 
 
                 const forecastCard = `
