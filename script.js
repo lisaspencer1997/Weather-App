@@ -1,10 +1,3 @@
-
-// api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}
-
-// e610d1ee0c1652aebf27c6bf71a547e3
-
-// https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}.
-
 // & What I want to see visually
 
     // * Set up normal html components (inc. head, header, body etc) make sure to attach bootstrap (if using) and connect css and javascript files to the html
@@ -30,3 +23,28 @@
                 // ^temperature
                 // ^wind speed
                 // ^humidity
+
+
+$('.search-form button').on('click', function () {
+    const city = $('#citySearchInput').val();
+    fetchWeatherData(city);
+});
+
+function fetchWeatherData(city) {
+    const apiKey = "e610d1ee0c1652aebf27c6bf71a547e3";
+    const queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
+
+    fetch(queryURL)
+    .then(function (response) {
+        return response.json()
+    }).then (function (data) {
+        console.log(data)
+
+    });
+}
+
+
+// function showPreviousEntries() {
+//     const city = $(this).text();
+
+// }

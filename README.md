@@ -26,7 +26,9 @@ This screen recording shows ...
 Contact me on lisa-spencer@outlook.com if something is not working as intended.
 
 ## Authors and acknowledgment
-* 
+* https://getbootstrap.com/docs/5.3/getting-started/introduction/#box-sizing
+* https://cssgradient.io/
+
 
 
 ## License
