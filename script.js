@@ -24,27 +24,63 @@
                 // ^wind speed
                 // ^humidity
 
+// TODO: Add Api key, city and query url
+const APIKey = "e610d1ee0c1652aebf27c6bf71a547e3";
+const city = "London";
+const queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKey}`
+//const todaysDate = new Date();
+const todaysDate = dayjs().format("DD MMMM YYYY")
+console.log(todaysDate);
 
-$('.search-form button').on('click', function () {
-    const city = $('#citySearchInput').val();
-    fetchWeatherData(city);
-});
+// TODO: fetch query and display in console log
+fetch(queryURL)
+.then(function (response) {
+    return response.json()
+})
+.then (function (data) {
+    console.log(data)
 
-function fetchWeatherData(city) {
-    const apiKey = "e610d1ee0c1652aebf27c6bf71a547e3";
-    const queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
+    $('.city').text(`${city}`);
+    $('.todaysDate').text(`${todaysDate}`);
+    $('.city').text(`${city}`);
+    $('.city').text(`${city}`);
+    $('.city').text(`${city}`);
+    $('.city').text(`${city}`);
 
-    fetch(queryURL)
-    .then(function (response) {
-        return response.json()
-    }).then (function (data) {
-        console.log(data)
-
-    });
-}
+})
 
 
-// function showPreviousEntries() {
-//     const city = $(this).text();
 
+// $(document).ready(function() {
+//     $('.btn-primary').on('click', function () {
+//         const city = $('#citySearchInput').val();
+//         fetchWeatherData(city);
+//     });
+// });
+
+// function fetchWeatherData(city) {
+//     // const apiKey = "e610d1ee0c1652aebf27c6bf71a547e3";
+//     // const queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
+
+//     fetch(queryURL)
+//     .then(function (response) {
+//         return response.json()
+//     }).then (function (data) {
+//         console.log(data);
+
+//         function data(){
+//             const temperature = data.main.temp;
+            
+//             $('.weather-container').html(`<p>Temperature: ${temperature} K</p>`);
+//         }
+
+//     });
 // }
+
+
+
+
+// // function showPreviousEntries() {
+// //     const city = $(this).text();
+
+// // }
