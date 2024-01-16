@@ -24,14 +24,27 @@
                 // ^wind speed
                 // ^humidity
 
-// TODO: Add Api key, city and query url
+$(document).ready(function() {
+    $('.btn-primary').on('click', function () {
+        const city = $('#citySearchInput').val();
+        fetchWeatherData(city);
+    });
+});
+
+
+
+
+function fetchWeatherData(city) {
+
 const APIKey = "e610d1ee0c1652aebf27c6bf71a547e3";
-const city = "London";
 
 const queryURL = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${APIKey}`
 
 const todaysDate = dayjs().format("DD MMMM YYYY")
-console.log(todaysDate);
+    console.log(todaysDate);
+
+
+
 
 // TODO: fetch query and display in console log
 fetch(queryURL)
@@ -58,13 +71,9 @@ fetch(queryURL)
 
 });
 
+}
 
-
-// $(document).ready(function() {
-//     $('.btn-primary').on('click', function () {
-//         const city = $('#citySearchInput').val();
-//         fetchWeatherData(city);
-//     });
+// 
 // });
 
 // function fetchWeatherData(city) {
@@ -92,4 +101,4 @@ fetch(queryURL)
 // // function showPreviousEntries() {
 // //     const city = $(this).text();
 
-// // }
+// // 
