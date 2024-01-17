@@ -19,7 +19,7 @@
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-areas:
         "search weatherContents weatherIcon"
-        "search forecast forecast";
+        "searchHistory forecast forecast";
     gap: 20px;
     max-width: 1200px;
     margin: 20px;
@@ -97,4 +97,17 @@
     content: "";
     clear: both;
     display: table;
+}
+
+#search-history-container {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    grid-area: searchHistory;
+}
+
+#search-history-container .search-history-btn{
+    width: 100%;
+    margin-top: 5px;background-color: rgb(180, 140, 210);
 }
