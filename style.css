@@ -8,7 +8,72 @@
     background: linear-gradient(232deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
 }
 
+#webpageGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+        "search weather weather"
+        "search forecast forecast";
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.container {
+
+}
+
+.mt-5 {
+    padding: 20px;
+    grid-area: search;
+}
+
 .form-group label {
-    font-size: 30px;
+    font-size: 20px;
     font-weight: bold;
+}
+
+#citySearchInput {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.btn-primary {
+    width: 100%;
+}
+
+.weather-container {
+    padding-left: 20px;
+    grid-area: weather;
+}
+
+.forecast-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+    grid-area: forecast;
+}
+
+.forecast-card {
+    width: 18%;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.forecast-date {
+    font-weight: bold;
+}
+
+.forecast-icon img {
+    width: 50px;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
 }
