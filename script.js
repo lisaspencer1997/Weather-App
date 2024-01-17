@@ -28,11 +28,13 @@ function fetchWeatherData(city) {
             
             $('.city').text(`${city}`);
             $('.todaysDate').text(`Today's Date: ${todaysDate}`);
-            //$('.todaysWeatherIcon').setAttr(`${}`);
             $('.todaysTemp').text(`Temperature: ${data.main.temp} ºC`);
             $('.todaysWind').text(`Wind Speed: ${data.wind.speed} KPH`);
             $('.todaysHumidity').text(`Humidity: ${data.main.humidity}%`);
+            displayWeatherIcon('.todaysWeatherIcon',data.weather[0].icon);
 
+            console.log(data.weather[0].icon)
+            
         });
 
         const fiveDayForecastURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${data[0].lat}&lon=${data[0].lon}&units=metric&appid=${APIKey}`
@@ -74,4 +76,10 @@ function fetchWeatherData(city) {
         })
     });
 
+    function displayWeatherIcon(selector, iconCode) {
+        const iconURL = `http://openweathermap.org/img/wn/${iconCode}.png`;
+        $(`${selector} .icon-container`).html(`<img src="${iconURL}">`);
+    }  
 }
+
+
